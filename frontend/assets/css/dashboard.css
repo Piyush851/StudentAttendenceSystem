@@ -1,0 +1,114 @@
+body {
+	font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+	background: linear-gradient(135deg, #e0f7fa 0%, #c8e6c9 100%);
+	margin: 0;
+	color: #388e3c;
+}
+
+.dashboard-main {
+	max-width: 800px;
+	margin: 2rem auto;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+	padding: 2rem 2.5rem;
+}
+
+h1, h2 {
+	color: #388e3c;
+	font-weight: 600;
+	margin-bottom: 1rem;
+}
+
+.attendance-section, .features-section {
+	margin-bottom: 2rem;
+}
+
+button {
+	background: #43a047;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+	margin-top: 0.5rem;
+}
+button:hover {
+	background: #388e3c;
+}
+
+.sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	width: 220px;
+	background: #f1f8e9;
+	box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+	padding: 2rem 1rem;
+	z-index: 100;
+}
+.sidebar-header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+.sidebar-nav {
+	list-style: none;
+	padding: 0;
+}
+.sidebar-nav li {
+	margin-bottom: 1.5rem;
+}
+.sidebar-nav a {
+	color: #388e3c;
+	text-decoration: none;
+	font-size: 1.1rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 6px;
+	transition: background 0.2s;
+}
+.sidebar-nav a:hover {
+	background: #c8e6c9;
+}
+
+#location-consent {
+	background: #f1f8e9;
+	border-radius: 8px;
+	padding: 1rem;
+	margin-top: 1rem;
+	color: #388e3c;
+}
+#location-status {
+	margin-top: 0.5rem;
+	font-weight: 500;
+}
+
+ul {
+	padding-left: 1.2rem;
+}
+li {
+	margin-bottom: 0.5rem;
+}
+
+#barcode-result {
+	margin-top: 1rem;
+	color: #388e3c;
+	font-weight: 500;
+}
+
+@media (max-width: 900px) {
+	.dashboard-main {
+		max-width: 98vw;
+		padding: 1rem;
+	}
+	.sidebar {
+		width: 160px;
+		padding: 1rem 0.5rem;
+	}
+}

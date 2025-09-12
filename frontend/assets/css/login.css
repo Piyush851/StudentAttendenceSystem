@@ -1,0 +1,82 @@
+body {
+	font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+	background: linear-gradient(135deg, #e0f7fa 0%, #c8e6c9 100%);
+	margin: 0;
+	color: #388e3c;
+}
+
+.login-container {
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+	padding: 2.5rem 2rem;
+	max-width: 350px;
+	width: 100%;
+	margin: 2rem auto;
+}
+
+h2 {
+	color: #388e3c;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+p {
+	color: #757575;
+	font-size: 1rem;
+}
+
+form {
+	margin-top: 1rem;
+}
+label {
+	display: block;
+	color: #388e3c;
+	font-weight: 500;
+	margin-bottom: 0.25rem;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+	width: 100%;
+	padding: 0.5rem;
+	border-radius: 8px;
+	border: 1px solid #bdbdbd;
+	margin-bottom: 1rem;
+	margin-top: 0.25rem;
+	font-size: 1rem;
+	background: #f1f8e9;
+	color: #388e3c;
+}
+button[type="submit"] {
+	width: 100%;
+	background: #43a047;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 0.75rem;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+button[type="submit"]:hover {
+	background: #388e3c;
+}
+
+a {
+	color: #388e3c;
+	text-decoration: underline;
+	font-weight: 500;
+	transition: color 0.2s;
+}
+a:hover {
+	color: #43a047;
+}
+
+@media (max-width: 500px) {
+	.login-container {
+		padding: 1rem;
+		max-width: 98vw;
+	}
+}
