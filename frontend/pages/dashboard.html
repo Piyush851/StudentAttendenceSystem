@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard | Student Attendance System</title>
+	<link rel="stylesheet" href="../assets/css/dashboard.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<!-- Header -->
+	<div id="header"></div>
+	<!-- Sidebar -->
+	<div id="sidebar"></div>
+
+	<main class="dashboard-main">
+		<h1>Welcome to Student Attendance Dashboard</h1>
+		<section class="attendance-section">
+			<h2>Mark Your Attendance</h2>
+			<button id="scan-barcode-btn"><i class="fas fa-barcode"></i> Scan Barcode</button>
+			<div id="barcode-result"></div>
+			<div id="location-consent">
+				<p>This application requires access to your device location for attendance verification.</p>
+				<button id="give-consent-btn">Give Location Consent</button>
+				<div id="location-status"></div>
+			</div>
+		</section>
+
+		<section class="features-section">
+			<h2>Features</h2>
+			<ul>
+				<li><a href="attendance-history.html" id="view-history-btn">View attendance history</a></li>
+				<li><button id="download-report-btn"><i class="fas fa-download"></i> Download attendance report</button></li>
+				<li>Notifications for attendance status <span id="attendance-notification" style="margin-left:10px; color:#43a047; font-weight:600;"></span></li>
+				<li>Profile management</li>
+				<li>Secure login/logout</li>
+			</ul>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<div id="footer"></div>
+
+	<script>
+		// Load header, sidebar, and footer
+		document.getElementById('header').innerHTML = await fetch('../components/header.html').then(r => r.text());
+		document.getElementById('sidebar').innerHTML = await fetch('../components/sidebar.html').then(r => r.text());
+		document.getElementById('footer').innerHTML = await fetch('../components/footer.html').then(r => r.text());
+
+		// Location consent logic
+		document.getElementById('give-consent-btn').onclick = function() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					document.getElementById('location-status').innerText = 'Location access granted.';
+				}, function() {
+					document.getElementById('location-status').innerText = 'Location access denied.';
+				});
+			} else {
+				document.getElementById('location-status').innerText = 'Geolocation is not supported.';
+			}
+		};
+
+		// Barcode scan button (placeholder)
+		document.getElementById('scan-barcode-btn').onclick = function() {
+			document.getElementById('barcode-result').innerText = 'Barcode scanning feature coming soon!';
+		};
+
+		// Download attendance report button
+		document.getElementById('download-report-btn').onclick = function() {
+			// Demo CSV data
+			const csv = 'Date,Status,Location\n2025-09-10,Present,Campus\n2025-09-11,Absent,-\n2025-09-12,Present,Campus';
+			const blob = new Blob([csv], { type: 'text/csv' });
+			const link = document.createElement('a');
+			link.href = URL.createObjectURL(blob);
+			link.download = 'attendance_report.csv';
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		};
+
+		// Attendance status notification demo
+		function showAttendanceNotification(message, duration = 3000) {
+			const notif = document.getElementById('attendance-notification');
+			notif.innerText = message;
+			notif.style.opacity = '1';
+			setTimeout(() => {
+				notif.style.opacity = '0';
+			}, duration);
+		}
+
+		// Example: Show notification when attendance is marked
+		const markBtn = document.getElementById('scan-barcode-btn');
+		if (markBtn) {
+			markBtn.addEventListener('click', function() {
+				showAttendanceNotification('Attendance marked successfully!');
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance History | Student Attendance System</title>
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div id="sidebar"></div>
+    <main class="dashboard-main">
+        <h1>Attendance History</h1>
+        <section>
+            <table style="width:100%; border-radius:8px; background:#f1f8e9;">
+                <thead>
+                    <tr style="background:#c8e6c9; color:#388e3c;">
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody id="attendance-history-table">
+                    <!-- Attendance records will be loaded here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/attendance.js"></script>
+    <script>
+        // Demo data for attendance history
+        const demoHistory = [
+            { date: '2025-09-10', status: 'Present', location: 'Campus' },
+            { date: '2025-09-11', status: 'Absent', location: '-' },
+            { date: '2025-09-12', status: 'Present', location: 'Campus' }
+        ];
+        const table = document.getElementById('attendance-history-table');
+        demoHistory.forEach(record => {
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${record.date}</td><td>${record.status}</td><td>${record.location}</td>`;
+            table.appendChild(row);
+        });
+    </script>
+</body>
+</html>
