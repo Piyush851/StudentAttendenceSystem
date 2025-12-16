@@ -86,5 +86,3 @@ Feel free to fork the repository, submit issues, or make pull requests for impro
 ## License
 This project is open source and available under the MIT License.
 
----
-For any questions or improvements, update this README or contact the project maintainer.
